@@ -1,7 +1,7 @@
 node{
       def dockerImageName= 'santoshp14/javadedockerapp_$JOB_NAME:$BUILD_NUMBER'
       stage('SCM Checkout'){
-         git 'https://github.com/LovesCloud/java-groovy-docker'
+         git 'https://github.com/santoshp14/sampleproject'
       }
       stage('Build'){
          // Get maven home path and build
@@ -20,7 +20,7 @@ node{
    
       stage('Publish Docker Image'){
          withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerPWD')]) {
-              sh "docker login -u rajnikhattarrsinha -p ${dockerPWD}"
+              sh "docker login -u santoshp14 -p ${dockerPWD Santosh}"
          }
         sh "docker push ${dockerImageName}"
       }
